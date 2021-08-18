@@ -10,7 +10,8 @@ const rl = require('readline').createInterface({
 const connect = () => {
   const conn = net.createConnection({
     host: '10.0.2.15',
-    port: 50541
+    port: 50541,
+
   });
   //interprets incoming data as text
   conn.setEncoding('utf8');
@@ -26,7 +27,11 @@ const connect = () => {
       } else {
         throw new Error('Length of Username !== 3')
       }
+      setInterval(() => {
+        conn.write('Move: up')
+      }, 500)
     });
+
 
   });
   //log closing message to console after 5 seconds of inactivty
