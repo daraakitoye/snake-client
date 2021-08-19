@@ -3,6 +3,8 @@
  * Specifically, so that we can handle user input via stdin
  */
 
+const { moveUp, moveLeft, moveDown, moveRight } = require("./constants");
+
 
 //ends play.js if ctrl + c is pressed
 const handleUserInput = ('data', (key) => {
@@ -24,13 +26,13 @@ const setupInput = (conn) => {
   stdin.on('data', (key) => {
     handleUserInput(key);
     if (key === 'w') {
-      conn.write('Move: up');
+      conn.write(moveUp);
     } else if (key === 'a') {
-      conn.write('Move: left');
+      conn.write(moveLeft);
     } else if (key === 's') {
-      conn.write('Move: down');
+      conn.write(moveDown);
     } else if (key === 'd') {
-      conn.write('Move: right');
+      conn.write(moveRight);
       //cute message :)
     } else {
       conn.write('Say: hehe :3')
