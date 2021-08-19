@@ -27,16 +27,16 @@ const connect = () => {
       } else {
         throw new Error('Length of Username !== 3')
       }
-      setInterval(() => {
-        conn.write('Move: up')
-      }, 500)
+      // setInterval(() => {
+      //   conn.write('Move: up')
+      // }, 500)
     });
 
 
   });
   //log closing message to console after 5 seconds of inactivty
   conn.on('data', () => {
-    console.log('u died for idling too long silly')
+    console.log('\nu died for idling too long silly')
 
   });
   return conn;
