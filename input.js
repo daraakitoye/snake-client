@@ -4,7 +4,7 @@
  */
 
 
-
+//ends play.js if ctrl + c is pressed
 const handleUserInput = ('data', (key) => {
   if (key === '\u0003') {
     process.exit();
@@ -20,7 +20,7 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
-
+  //mapping wasd
   stdin.on('data', (key) => {
     handleUserInput(key);
     if (key === 'w') {
@@ -31,6 +31,9 @@ const setupInput = (conn) => {
       conn.write('Move: down');
     } else if (key === 'd') {
       conn.write('Move: right');
+      //cute message :)
+    } else {
+      conn.write('Say: hehe :3')
     }
   })
 
