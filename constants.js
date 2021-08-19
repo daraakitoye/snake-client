@@ -6,6 +6,14 @@ const moveUp = "Move: up";
 const moveLeft = "Move: left";
 const moveDown = "Move: down";
 const moveRight = "Move: right";
+const gameIntro = () => {
+  const instructions = 'How to play:\nW: Moves snek up\nA: Moves snek right\nS: Moves snek down\nD: Moves snek right\nCTRL + C: quit snek'
+  setTimeout(() => {
+    console.log('Succesfully connected to the game server')
+  }, setTimeout(() => {
+    console.log(instructions)
+  }, 2000), 3000)
+};
 
 module.exports = {
   IP,
@@ -13,5 +21,6 @@ module.exports = {
   moveUp,
   moveLeft,
   moveDown,
-  moveRight
+  moveRight,
+  gameIntro,
 }

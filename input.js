@@ -35,7 +35,7 @@ const setupInput = (conn) => {
       conn.write(moveRight);
       //cute message :)
     } else {
-      conn.write('Say: hehe :3')
+      conn.write('Say: boop!')
     }
   })
 

@@ -1,6 +1,6 @@
 const net = require('net');
-
 const { IP, PORT } = require('./constants');
+const { gameIntro } = require('./constants')
 
 //Establishes connection with the game server
 
@@ -14,19 +14,14 @@ const connect = () => {
   conn.setEncoding('utf8');
 
   conn.on('connect', () => {
-    setTimeout(() => {
-      console.log('Succesfully connected to the game server')
-    }, setTimeout(() => {
-      console.log('How to play:\nW: Moves snek up\nA: Moves snek right\nS: Moves snek down\nD: Moves snek right\nCTRL + C: quit snek')
-    }, 2000), 3000)
-
+    gameIntro();
     //sends user input to game server
-    conn.write('Name: YOU')
+    conn.write('Name: YOU');
   });
 
   //log closing message to console after 5 seconds of inactivty
   conn.on('data', () => {
-    console.log('\nu died :(')
+    console.log('\nu died :( quit and rerun play.js to try again!')
 
   });
   return conn;
